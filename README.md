@@ -29,3 +29,27 @@ Ik heb deze week veel nieuwe dingen geleerd. Mede dankzij het experimenteren met
 ##### Problemen:
 
 Ik ben nog niet helemaal tevreden over de vormgeving. Ook daar moet ik nog mee experimenteren.
+
+### Week 2
+
+##### Progression:
+
+
+- Stijl van de website veranderd.
+- Veel met gradient background geoefend.
+- Alle componenten, op één na (progression bar), gestylet.
+- Veel transitions en animations toegevoegd om de site meer pleasurable te maken.
+- css opgedeeld op basis van de componenten om de leesbaarheid iets te verbeteren.
+
+
+##### Terugblik:
+
+
+Ik ben tevreden over hoe de site er uit ziet. De meeste componenten voelen af en ik heb veel geleerd over animations en tranistions.
+
+
+##### Vooruitblik:
+
+
+- Alle componenten afmaken.
+- Overige dingen uit het boek toepassen op de site.
