@@ -53,3 +53,4 @@ Ik ben tevreden over hoe de site er uit ziet. De meeste componenten voelen af en
 
 - Alle componenten afmaken.
 - Overige dingen uit het boek toepassen op de site.
+- Site responsive maken
