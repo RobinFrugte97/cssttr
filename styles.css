@@ -812,7 +812,6 @@ section:nth-child(4) div {
   height: 50px;
   animation: spin 2s ease infinite;
   position: relative;
-  transition: .35s;
   align-self: center;
   top: 25%;
 }
