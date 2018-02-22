@@ -157,8 +157,6 @@ main>section:nth-child(3) {
 main>section:nth-child(6) {
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 3;
   display: flex;
   position: relative;
   flex-direction: row;
@@ -169,7 +167,7 @@ main>section:focus-within {
   z-index: 2;
   outline: none;
   filter: none;
-  transition: .35s ease-in;
+  /* transition: .35s ease-in; */
 }
 
 main>section:nth-child(even):focus-within {
@@ -186,6 +184,8 @@ main>section>h1 {
   font-size: 1.5em;
 }
 
+/* Gradient animation van elke sectie */
+
 main>section:nth-child(1):focus-within {
   background: linear-gradient(90deg, #FFAFAF, #BAA5FF);
   background-size: 400% 400%;
@@ -201,6 +201,14 @@ main>section:nth-child(2):focus-within {
   background: linear-gradient(124deg, #F45866, #C45AB3);
   background-size: 400% 400%;
   animation: backgroundAnimation 5s ease infinite;
+  position: fixed;
+  max-width: 37em;
+  height: 30em;
+  z-index: 9999999;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+  outline: none;
 }
 
 main>section:nth-child(3):focus-within {
@@ -231,13 +239,13 @@ main>section:nth-child(6):focus-within {
 
 main>section:nth-child(1)>form {
   display: flex;
-flex-direction: column;
-align-items: center;
-width: 22.5em;
-background-color: white;
-padding: 1em 0;
-border-radius: 5px;
-margin-top: 2em;
+  flex-direction: column;
+  align-items: center;
+  width: 22.5em;
+  background-color: white;
+  padding: 1em 0;
+  border-radius: 5px;
+  margin-top: 2em;
 }
 
 main>section:nth-child(1)>form>div {
@@ -258,12 +266,12 @@ main>section:nth-child(1)>form>div>label {
   align-self: flex-start;
 }
 
-main>section:nth-child(1) label {
+[for*="field"] {
   padding: 0;
   color: cadetblue;
 }
 
-main>section:nth-child(1) input:focus + label {
+[name*="field"]:focus + label {
   display: block;
   margin-top: 0em;
   transition: .2s;
@@ -271,7 +279,8 @@ main>section:nth-child(1) input:focus + label {
   color: cadetblue;
 }
 
-main>section>form>div>input {
+[type='email'],
+[type='password'] {
   padding: 1.2em 1em;
   width: 80%;
   max-width: 100%;
@@ -279,26 +288,52 @@ main>section>form>div>input {
   border: none;
   margin-top: 2em;
   margin-bottom: 1em;
+  position: relative;
+  z-index: 99;
 }
 
-main>section>form>div>input:focus {
+[type='email']:valid,
+[type='password']:valid {
+  position: relative;
+  box-shadow: 5px 5px 15px 0px rgba(18,255,101,1);
+}
+
+[type='email']:valid + label,
+[type='password']:valid + label {
+  display: block;
+  margin-top: 0em;
+  transition: .2s;
+  font-weight: 700;
+  color: cadetblue;
+}
+
+[type='email']:focus:invalid,
+[type='password']:focus:invalid {
+  box-shadow: 5px 5px 15px 0px rgba(255,20,20,1);
+}
+
+[type='email']:focus,
+[type='password']:focus {
   outline: none;
   background-color: #d8d8d8;
   transition: .2s;
 }
 
-main>section>form>div>input::placeholder {
+[type='email']::placeholder,
+[type='password']::placeholder {
   opacity: .75;
   font-size: 1.2em;
 }
 
-main>section>form>div>input:focus::placeholder {
+[type='email']:focus::placeholder,
+[type='password']:focus::placeholder {
   transition: .2s;
   opacity: 0;
 }
 
 
 main>section:nth-child(1)>form>button {
+  position: relative;
   background-color: cadetblue;
   border: none;
   width: 87%;
@@ -307,6 +342,15 @@ main>section:nth-child(1)>form>button {
   font-size: 1.1em;
   color: white;
   transition: .2s
+}
+
+main>section:nth-child(1)>form>button::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
 }
 
 main>section>form>button:hover {
@@ -324,7 +368,7 @@ main>section>form>span {
   flex-direction: row;
 }
 
-main>section>form span>input {
+span>[type="checkbox"] {
   list-style: none;
   background-color: blue;
 }
@@ -337,6 +381,30 @@ main>section:nth-child(1)>form>a {
   margin-bottom: 1.5em;
 }
 
+[type="checkbox"] {
+	position: absolute;
+	clip: rect(0,0,0,0);
+}
+
+[type="checkbox"] + label::before {
+	content: '\a0';
+	display: inline-block;
+	vertical-align: .2em;
+	width: .8em;
+	height: .8em;
+	margin-right: .2em;
+	border-radius: .2em;
+	background: silver;
+	text-indent: .15em;
+	line-height: .65;
+}
+
+[type="checkbox"]:checked + label::before {
+	content: '\002714';
+	background: cadetblue;
+  color: white;
+}
+
 /* Einde login */
 
 main>section {
@@ -345,7 +413,7 @@ main>section {
   height: 30em;
   border: solid 1px grey;
   padding: 2em;
-  transition: .35s ease-out;
+  /* transition: .35s ease-out; */
 }
 
 label {
@@ -360,33 +428,6 @@ button {
 form {
   display: flex;
   flex-direction: column;
-}
-
-body form:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-}
-
-body form:nth-child(2) button {
-  list-style: none;
-}
-
-input {
-  max-width: 50%;
-  resize: none;
-  border: 1px grey solid;
-}
-
-main>section:nth-of-type(5) {
-  padding-left: 25%;
-  padding-right: 25%;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-}
-
-main>section:nth-of-type(5) label {
-  display: none;
 }
 
 /*Begin chat*/
@@ -434,9 +475,12 @@ section>ol {
   padding: 1em;
   margin: 0;
   margin-top: 1em;
-  background: linear-gradient(45deg, #87e0fd,#07ff83,#87e0fd);
-  background-size: 400% 400%;
-  animation: Gradient 10s ease infinite;
+  background: hsl(20, 40%, 90%);
+  background-image: linear-gradient(45deg, #fb3 80px, transparent 0),
+  linear-gradient(225deg, #AB2 138px, transparent 0),
+  linear-gradient(45deg, cadetblue 141px, transparent 0),
+  linear-gradient(238deg, red 141px, transparent 0);
+  background-size: 41px 100%, 61px 100%, 213px 100%, 104px 100%;
 }
 
 textarea {
@@ -462,6 +506,33 @@ button:hover {
   transition: .2s;
 }
 
+body form:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+}
+
+body form:nth-child(2) button {
+  list-style: none;
+}
+
+input {
+  max-width: 50%;
+  resize: none;
+  border: 1px grey solid;
+}
+
+main>section:nth-of-type(5) {
+  padding-left: 25%;
+  padding-right: 25%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+}
+
+main>section:nth-of-type(5) label {
+  display: none;
+}
+
 /*Einde chat*/
 
 /*Begin mediaitem*/
@@ -472,10 +543,21 @@ div>article {
   overflow: hidden;
 }
 
-main>section:nth-child(2)>div {
+section:nth-child(2)>div {
+  position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  outline: 0;
+}
 
+section:nth-child(2)>div::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  cursor: pointer;
 }
 
 div>article>h1 {
@@ -486,7 +568,7 @@ div>article>h1 {
   padding-top: 1em;
   padding-bottom: 1em;
   z-index: 1;
-  width: 29.16%;
+  width: 100%;
   position: absolute;
   font-weight: 400;
   font-size: 1.2em;
@@ -494,25 +576,23 @@ div>article>h1 {
 
 div>article>p {
   background-color: white;
-  /* margin-top: 3em; */
   position: relative;
   transform: translateY(-33%);
   padding: 1em 3em;
   z-index: 2;
   line-height: 1.6;
-  /* text-align: center; */
   font-size: 1.0em;
   margin: 0;
 }
 
 div>article>footer {
   position: relative;
-  /* margin-bottom: 5em; */
   margin-left: 2em;
 }
 
 article>img {
   width: 100%;
+  min-width: 37.5em;
   overflow-y: hidden;
   position: relative;
 }
@@ -534,7 +614,6 @@ section>article {
   align-self: center;
   width: min-content;
   position: relative;
-  outline-none;
 }
 
 section>article>h1 {
@@ -590,6 +669,7 @@ section:nth-child(3)>article:focus h1 {
 
 section:nth-child(3)>article h1 {
   transition: ease .3s;
+  cursor: pointer;
 }
 
 section:nth-child(3)>article:focus figcaption {
@@ -603,7 +683,14 @@ section:nth-child(3)>article figcaption {
 }
 
 figure img {
+  filter: blur(5px);
   height: 31em;
+  transition: .2s;
+}
+
+section:nth-child(3)>article:focus img {
+  filter: blur(0px);
+  transition: .2s;
 }
 
 figure>div{
@@ -630,7 +717,6 @@ fieldset {
   grid-column-end: 3;
   border: none;
   padding-bottom: 3em;
-  width: 55%;
   background-position: bottom;
   margin-top: 5em;
 }
@@ -686,7 +772,24 @@ legend {
 progress {
   -webkit-appearance: none;
   background-color: white;
-  width: 37em;
+  width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background: white;
+    border: 1px solid black;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(45deg, #87e0fd,#07ff83);
+  animation: Gradient 3s ease infinite;
+  transition: 2s ease;
+  width: 100%;
+}
+
+progress::-webkit-progress-value:hover {
+
+  transform: scale(1.025);
 }
 
 main>section:nth-child(4) ol {
@@ -701,30 +804,103 @@ main>section:nth-child(4) ol * {
 main>section:nth-child(4) li {
   margin-right: 6em;
 }
+
+section:nth-child(4) div {
+  border: 16px none transparent;
+  border-top: 60px dotted #3498db;
+  width: 120px;
+  height: 50px;
+  animation: spin 2s ease infinite;
+  position: relative;
+  transition: .35s;
+  align-self: center;
+  top: 25%;
+}
+
+section:nth-child(4) div::after {
+  content: '';
+  position: absolute;
+  border: 16px none transparent;
+  border-top: 60px dotted #3498db;
+  opacity: .5;
+  width: 120px;
+  height: 1px;
+  transition: .35s;
+  animation: spinAfter 2s ease infinite;
+}
+
+
 /*einde progressbar*/
+
+@media (max-width: 80em) {
+  main {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  main>section {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    overflow: hidden;
+    min-width: 20em;
+  }
+  article>img {
+    width: 100%;
+    overflow-y: hidden;
+    position: relative;
+  }
+}
+
+/* Keyframes */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(360deg);
+    opacity: .5;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spinAfter {
+  0% {
+    transform: rotate(0deg);
+
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 @keyframes Gradient {
 	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+		background-position: 0% 100%
+  }
+  100% {
+    background-position: 100% 0%
+  }
 }
 
 @keyframes backgroundAnimation {
-    0% {
-      background-position:0% 77%
-    }
-    50% {
-      background-position:100% 24%
-    }
-    100% {
-      background-position:0% 77%
-    }
+  0% {
+    background-position:0% 77%
+  }
+  50% {
+    background-position:100% 24%
+  }
+  100% {
+    background-position:0% 77%
+  }
 }
 
 @keyframes ratingBounce {
