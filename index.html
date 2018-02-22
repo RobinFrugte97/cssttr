@@ -13,7 +13,7 @@
         <h1>Main navigation</h1>
         <ul>
             <li><a href="#main-content" aria-label="Home, current page">Home</a></li>
-            <li><a href="/products">Products</a>
+            <li><a href="/products">Components</a>
                 <ul>
                     <li><a href="#section_1">Login</a></li>
                     <li><a href="#section_2">Media-item</a></li>
@@ -30,30 +30,29 @@
     </nav>
   </header>
   <main>
-    <section tabindex="0" id="section_1">
+    <section>
                 <h1>Login</h1>
       <form action="/" method="post">
           <div>
-            <input type="email" id="field-email" name="field-email" autocomplete="email" placeholder="" required>
+            <input type="email"  id="section_1" name="field-email" autocomplete="email" placeholder="email" required>
             <label for="field-email">Email</label>
           </div>
           <div>
-            <input type="password" id="field-password" name="field-password" placeholder="" required>
+            <input type="password" id="field-password" name="field-password" placeholder="password" required>
             <label for="field-password">Password</label>
           </div>
           <span>
             <input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
             <label for="field-stay-logged-in">Stay logged in</label>
           </span>
-
           <a href="/">Forgot password</a>
           <button type="submit">Login</button>
       </form>
     </section>
-    <section tabindex="0" id="section_2">
-      <div>
+    <section>
+      <div tabindex="0" id="section_2">
         <article>
-        	<h1><a href="/">Seizoen 2018 <span>&amp</span> McLaren</a></h1>
+        	<h1><a href="/">Seizoen 2018 & McLaren</a></h1>
         	<img src="images/tes.jpg" alt="A colorful crayon drawing on the hood of a car." />
         	<p>Renstal McLaren begint het seizoen van 2018 met een nieuwe motorfabrikant. Zal Renault de renstal terug brengen naar de top?</p>
           <footer>
@@ -62,8 +61,8 @@
         </article>
       </div>
     </section>
-    <section tabindex="0" id="section_3">
-      <article tabindex="0">
+    <section>
+      <article tabindex="0" id="section_3">
       	<h1>Discover Canada</h1>
       	<figure>
       		<!-- Portrait
@@ -81,13 +80,13 @@
       	</figure>
       </article>
     </section>
-    <section tabindex="0" id="section_4">
+    <section id="section_4">
       <nav>
           <h1>Finish your order</h1>
           <progress value="0.75" max="1">25%</progress>
           <ol>
               <li>
-                  <a href="/cart">Cart</a>
+                  <a href="#main-content">Cart</a>
               </li>
               <li>
                   <a href="#main-content" aria-label="Address, current step">Address</a>
@@ -100,8 +99,11 @@
               </li>
           </ol>
       </nav>
+      <div>
+
+      </div>
     </section>
-    <section tabindex="0" id="section_5">
+    <section id="section_5">
       <ol>
           <li>
               <p>
@@ -136,7 +138,7 @@
           <button type="submit">Send</button>
       </form>
     </section>
-    <section tabindex="0" id="section_6">
+    <section id="section_6">
       <fieldset>
           <legend>Rating</legend>
           <input type="radio" name="rating" id="rating-0">
