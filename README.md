@@ -20,6 +20,9 @@
 - Het Navigatie en de chat component hebben het meeste voortgang.
 
 
+![](https://github.com/RobinFrugte97/cssttr/blob/master/images/Week1.png)
+
+
 ##### Terugblik:
 
 
@@ -45,7 +48,7 @@ Ik ben nog niet helemaal tevreden over de vormgeving. Ook daar moet ik nog mee e
 ##### Terugblik:
 
 
-Ik ben tevreden over hoe de site er uit ziet. De meeste componenten voelen af en ik heb veel geleerd over animations en tranistions.
+Ik ben tevreden over hoe de site er uit ziet. De meeste componenten voelen af en ik heb veel geleerd over animations en transitions.
 
 
 ##### Vooruitblik:
@@ -53,4 +56,21 @@ Ik ben tevreden over hoe de site er uit ziet. De meeste componenten voelen af en
 
 - Alle componenten afmaken.
 - Overige dingen uit het boek toepassen op de site.
-- Site responsive maken
+
+### Week 3
+
+#### Progression:
+
+
+- Alle componenten gestylet.
+- Laatste componenten uit het boek toegevoegd.
+- Media query toegevoegd.
+- Animations geoefend in de loader.
+
+![](https://github.com/RobinFrugte97/cssttr/blob/master/images/Week3.png)
+
+
+#### Reflectie:
+
+Ik heb tijdens het vak veel nieuwe technieken geleerd (Animations, gradients, transforms, box-shadows en nog veel meer).
+Het is heel interessant om zonder classes en IDs te stijlen.
